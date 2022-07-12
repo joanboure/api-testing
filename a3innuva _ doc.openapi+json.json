@@ -1,0 +1,3769 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "a3innuva | doc",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://a3api.wolterskluwer.es/a3innuva-doc"
+        }
+    ],
+    "paths": {
+        "/api/documents": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_Get",
+                "operationId": "Documents_Get",
+                "parameters": [
+                    {
+                        "name": "SortField",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SortDesc",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "LegalEntityId",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Tags",
+                        "in": "query",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "FromDate",
+                        "in": "query",
+                        "description": "Format - date-time (as date-time in RFC3339).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "ToDate",
+                        "in": "query",
+                        "description": "Format - date-time (as date-time in RFC3339).",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "PageNumber",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "PageSize",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "SearchField",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SearchValue",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DocumentDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "title": "string",
+                                        "normalizedTitle": "string",
+                                        "extension": "string",
+                                        "size": 0,
+                                        "legalEntityFullName": "string",
+                                        "lastUpdatedDate": "string",
+                                        "legalEntityId": "string",
+                                        "tags": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "normalizedName": "string",
+                                                "description": "string",
+                                                "isMasterTag": true
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "publishDate": "string",
+                                        "mainTagId": "string",
+                                        "sourceApplication": {
+                                            "id": "string",
+                                            "name": "string"
+                                        },
+                                        "record": "string",
+                                        "observations": "string",
+                                        "visibility": 0,
+                                        "applicationAttributes": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "value": {}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DocumentDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "title": "string",
+                                        "normalizedTitle": "string",
+                                        "extension": "string",
+                                        "size": 0,
+                                        "legalEntityFullName": "string",
+                                        "lastUpdatedDate": "string",
+                                        "legalEntityId": "string",
+                                        "tags": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "normalizedName": "string",
+                                                "description": "string",
+                                                "isMasterTag": true
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "publishDate": "string",
+                                        "mainTagId": "string",
+                                        "sourceApplication": {
+                                            "id": "string",
+                                            "name": "string"
+                                        },
+                                        "record": "string",
+                                        "observations": "string",
+                                        "visibility": 0,
+                                        "applicationAttributes": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "value": {}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/documents/{id}": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_GetById",
+                "operationId": "Documents_GetById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DocumentDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "title": "string",
+                                        "normalizedTitle": "string",
+                                        "extension": "string",
+                                        "size": 0,
+                                        "legalEntityFullName": "string",
+                                        "lastUpdatedDate": "string",
+                                        "legalEntityId": "string",
+                                        "tags": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "normalizedName": "string",
+                                                "description": "string",
+                                                "isMasterTag": true
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "publishDate": "string",
+                                        "mainTagId": "string",
+                                        "sourceApplication": {
+                                            "id": "string",
+                                            "name": "string"
+                                        },
+                                        "record": "string",
+                                        "observations": "string",
+                                        "visibility": 0,
+                                        "applicationAttributes": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "value": {}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DocumentDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "title": "string",
+                                        "normalizedTitle": "string",
+                                        "extension": "string",
+                                        "size": 0,
+                                        "legalEntityFullName": "string",
+                                        "lastUpdatedDate": "string",
+                                        "legalEntityId": "string",
+                                        "tags": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "normalizedName": "string",
+                                                "description": "string",
+                                                "isMasterTag": true
+                                            }
+                                        ],
+                                        "documentDate": "string",
+                                        "publishDate": "string",
+                                        "mainTagId": "string",
+                                        "sourceApplication": {
+                                            "id": "string",
+                                            "name": "string"
+                                        },
+                                        "record": "string",
+                                        "observations": "string",
+                                        "visibility": 0,
+                                        "applicationAttributes": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "value": {}
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_Delete",
+                "operationId": "Documents_Delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documents/bulk": {
+            "delete": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_BulkDelete",
+                "operationId": "Documents_BulkDelete",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BulkDeleteDocumentsRequest"
+                            },
+                            "example": {
+                                "documentIds": [
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documents/{id}/timeline": {
+            "get": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_GetTimeline",
+                "operationId": "Documents_GetTimeline",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AuditDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "type": 0,
+                                        "userId": "string",
+                                        "userName": "string",
+                                        "timeStamp": "string",
+                                        "entityTrack": {},
+                                        "additionalValues": {}
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/AuditDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "type": 0,
+                                        "userId": "string",
+                                        "userName": "string",
+                                        "timeStamp": "string",
+                                        "entityTrack": {},
+                                        "additionalValues": {}
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documents/{id}/attributes": {
+            "put": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_ModifyAttributes",
+                "operationId": "Documents_ModifyAttributes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateDocumentAttributesRequest"
+                            },
+                            "example": {
+                                "title": "string",
+                                "documentDate": "string",
+                                "legalEntityId": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documents/{id}/tags": {
+            "put": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_ModifyTags",
+                "operationId": "Documents_ModifyTags",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UpdateDocumentTagsRequest"
+                            },
+                            "example": {
+                                "tagIds": [
+                                    "string"
+                                ],
+                                "mainTagId": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documents/{id}/share": {
+            "post": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_Share",
+                "operationId": "Documents_Share",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DocumentShareLinkResult"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "shareLink": "string",
+                                    "password": "string",
+                                    "expirationDate": "string",
+                                    "hasPasswordProtection": true
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DocumentShareLinkResult"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "shareLink": "string",
+                                    "password": "string",
+                                    "expirationDate": "string",
+                                    "hasPasswordProtection": true
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documents/tags/bulk": {
+            "put": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_BulkAddTags",
+                "operationId": "Documents_BulkAddTags",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BulkAddDocumentTagsRequest"
+                            },
+                            "example": {
+                                "documentIds": [
+                                    "string"
+                                ],
+                                "tagIds": [
+                                    "string"
+                                ],
+                                "mainTagId": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": [
+                                    "string"
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": [
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_BulkRemoveTags",
+                "operationId": "Documents_BulkRemoveTags",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BulkRemoveDocumentTagsRequest"
+                            },
+                            "example": {
+                                "documentIds": [
+                                    "string"
+                                ],
+                                "tagIds": [
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "409": {
+                        "description": "Conflict",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documentsharelinks/{id}": {
+            "put": {
+                "tags": [
+                    "DocumentShareLinks"
+                ],
+                "summary": "DocumentShareLinks_Modify",
+                "operationId": "DocumentShareLinks_Modify",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyShareLinkRequest"
+                            },
+                            "example": {
+                                "hasPasswordProtection": true
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "DocumentShareLinks"
+                ],
+                "summary": "DocumentShareLinks_Get",
+                "operationId": "DocumentShareLinks_Get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DocumentShareLinkDto"
+                                },
+                                "example": {
+                                    "sharerName": "string",
+                                    "documentName": "string",
+                                    "documentExtension": "string",
+                                    "documentSizeInBytes": 0,
+                                    "expirationDate": "string"
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DocumentShareLinkDto"
+                                },
+                                "example": {
+                                    "sharerName": "string",
+                                    "documentName": "string",
+                                    "documentExtension": "string",
+                                    "documentSizeInBytes": 0,
+                                    "expirationDate": "string"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "Client Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documentsharelinks/{shareId}/password": {
+            "get": {
+                "tags": [
+                    "DocumentShareLinks"
+                ],
+                "summary": "DocumentShareLinks_HasPasswordProtection",
+                "operationId": "DocumentShareLinks_HasPasswordProtection",
+                "parameters": [
+                    {
+                        "name": "shareId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/documenttemplates": {
+            "get": {
+                "tags": [
+                    "DocumentTemplates"
+                ],
+                "summary": "DocumentTemplates_Get",
+                "operationId": "DocumentTemplates_Get",
+                "parameters": [
+                    {
+                        "name": "SortField",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SortDesc",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "Tags",
+                        "in": "query",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "PageNumber",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "PageSize",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "SearchField",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SearchValue",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DocumentTemplateDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "name": "string",
+                                        "normalizedName": "string",
+                                        "tags": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "normalizedName": "string",
+                                                "description": "string",
+                                                "isMasterTag": true
+                                            }
+                                        ],
+                                        "mainTagId": "string",
+                                        "isMasterDocumentTemplate": true,
+                                        "description": "string"
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/DocumentTemplateDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "name": "string",
+                                        "normalizedName": "string",
+                                        "tags": [
+                                            {
+                                                "id": "string",
+                                                "name": "string",
+                                                "normalizedName": "string",
+                                                "description": "string",
+                                                "isMasterTag": true
+                                            }
+                                        ],
+                                        "mainTagId": "string",
+                                        "isMasterDocumentTemplate": true,
+                                        "description": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "DocumentTemplates"
+                ],
+                "summary": "DocumentTemplates_Create",
+                "operationId": "DocumentTemplates_Create",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDocumentTemplateRequest"
+                            },
+                            "example": {
+                                "name": "string",
+                                "description": "string",
+                                "tagIds": [
+                                    "string"
+                                ],
+                                "mainTagId": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/documenttemplates/{id}": {
+            "get": {
+                "tags": [
+                    "DocumentTemplates"
+                ],
+                "summary": "DocumentTemplates_GetById",
+                "operationId": "DocumentTemplates_GetById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagDto"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "name": "string",
+                                    "normalizedName": "string",
+                                    "description": "string",
+                                    "isMasterTag": true
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagDto"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "name": "string",
+                                    "normalizedName": "string",
+                                    "description": "string",
+                                    "isMasterTag": true
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "DocumentTemplates"
+                ],
+                "summary": "DocumentTemplates_Modify",
+                "operationId": "DocumentTemplates_Modify",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyDocumentTemplateRequest"
+                            },
+                            "example": {
+                                "name": "string",
+                                "description": "string",
+                                "tagIds": [
+                                    "string"
+                                ],
+                                "mainTagId": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "DocumentTemplates"
+                ],
+                "summary": "DocumentTemplates_Delete",
+                "operationId": "DocumentTemplates_Delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/legalentity": {
+            "get": {
+                "tags": [
+                    "LegalEntity"
+                ],
+                "summary": "LegalEntity_Get",
+                "operationId": "LegalEntity_Get",
+                "parameters": [
+                    {
+                        "name": "Fields",
+                        "in": "query",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "Value",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Limit",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "PageNumber",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LegalEntityDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "correlationId": "string",
+                                        "id": "string",
+                                        "name": "string",
+                                        "surName": "string",
+                                        "lastName": "string",
+                                        "formattedName": "string",
+                                        "fullName": "string",
+                                        "vatNumber": "string"
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/LegalEntityDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "correlationId": "string",
+                                        "id": "string",
+                                        "name": "string",
+                                        "surName": "string",
+                                        "lastName": "string",
+                                        "formattedName": "string",
+                                        "fullName": "string",
+                                        "vatNumber": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/tags": {
+            "get": {
+                "tags": [
+                    "tags"
+                ],
+                "summary": "Tags_Get",
+                "operationId": "Tags_Get",
+                "parameters": [
+                    {
+                        "name": "SortField",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SortDesc",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "PageNumber",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "PageSize",
+                        "in": "query",
+                        "description": "Format - int32.",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "SearchField",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SearchValue",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TagDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "name": "string",
+                                        "normalizedName": "string",
+                                        "description": "string",
+                                        "isMasterTag": true
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TagDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "name": "string",
+                                        "normalizedName": "string",
+                                        "description": "string",
+                                        "isMasterTag": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "tags"
+                ],
+                "summary": "Tags_Create",
+                "operationId": "Tags_Create",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateTagRequest"
+                            },
+                            "example": {
+                                "name": "string",
+                                "description": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/tags/{id}": {
+            "get": {
+                "tags": [
+                    "tags"
+                ],
+                "summary": "Tags_GetById",
+                "operationId": "Tags_GetById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagDto"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "name": "string",
+                                    "normalizedName": "string",
+                                    "description": "string",
+                                    "isMasterTag": true
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagDto"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "name": "string",
+                                    "normalizedName": "string",
+                                    "description": "string",
+                                    "isMasterTag": true
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "tags"
+                ],
+                "summary": "Tags_Modify",
+                "operationId": "Tags_Modify",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ModifyTagRequest"
+                            },
+                            "example": {
+                                "name": "string",
+                                "description": "string"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "tags"
+                ],
+                "summary": "Tags_Delete",
+                "operationId": "Tags_Delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tenants/{codCliente}": {
+            "get": {
+                "tags": [
+                    "Tenants"
+                ],
+                "summary": "Tenants_Get",
+                "operationId": "Tenants_Get",
+                "parameters": [
+                    {
+                        "name": "codCliente",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TenantDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "idCda": "string"
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TenantDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "idCda": "string"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/user": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "User_Get",
+                "operationId": "User_Get",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagDto"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "name": "string",
+                                    "normalizedName": "string",
+                                    "description": "string",
+                                    "isMasterTag": true
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TagDto"
+                                },
+                                "example": {
+                                    "id": "string",
+                                    "name": "string",
+                                    "normalizedName": "string",
+                                    "description": "string",
+                                    "isMasterTag": true
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/documents/tags": {
+            "post": {
+                "tags": [
+                    "Documents"
+                ],
+                "summary": "Documents_GetTagsByDocumentsIds",
+                "operationId": "Documents_GetTagsByDocumentsIds",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TagsFromDocumentsRequest"
+                            },
+                            "example": {
+                                "documentIds": [
+                                    "string"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TagDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "name": "string",
+                                        "normalizedName": "string",
+                                        "description": "string",
+                                        "isMasterTag": true
+                                    }
+                                ]
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/TagDto"
+                                    }
+                                },
+                                "example": [
+                                    {
+                                        "id": "string",
+                                        "name": "string",
+                                        "normalizedName": "string",
+                                        "description": "string",
+                                        "isMasterTag": true
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/legalentity/{correlationId}": {
+            "get": {
+                "tags": [
+                    "LegalEntity"
+                ],
+                "summary": "LegalEntity_GetByCorrelationId",
+                "operationId": "LegalEntity_GetByCorrelationId",
+                "parameters": [
+                    {
+                        "name": "correlationId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LegalEntityDto"
+                                },
+                                "example": {
+                                    "correlationId": "string",
+                                    "id": "string",
+                                    "name": "string",
+                                    "surName": "string",
+                                    "lastName": "string",
+                                    "formattedName": "string",
+                                    "fullName": "string",
+                                    "vatNumber": "string"
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LegalEntityDto"
+                                },
+                                "example": {
+                                    "correlationId": "string",
+                                    "id": "string",
+                                    "name": "string",
+                                    "surName": "string",
+                                    "lastName": "string",
+                                    "formattedName": "string",
+                                    "fullName": "string",
+                                    "vatNumber": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            },
+                            "application/problem+json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                },
+                                "example": {
+                                    "type": "string",
+                                    "title": "string",
+                                    "status": 0,
+                                    "detail": "string",
+                                    "instance": "string",
+                                    "errors": {}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AuditDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "type": {
+                        "$ref": "#/components/schemas/AuditType"
+                    },
+                    "userId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "userName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "timeStamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "entityTrack": {
+                        "nullable": true
+                    },
+                    "additionalValues": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "AuditType": {
+                "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8
+                ],
+                "type": "integer",
+                "format": "int32"
+            },
+            "BulkAddDocumentTagsRequest": {
+                "required": [
+                    "documentIds",
+                    "tagIds"
+                ],
+                "type": "object",
+                "properties": {
+                    "documentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tagIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "mainTagId": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BulkDeleteDocumentsRequest": {
+                "required": [
+                    "documentIds"
+                ],
+                "type": "object",
+                "properties": {
+                    "documentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "BulkRemoveDocumentTagsRequest": {
+                "required": [
+                    "documentIds",
+                    "tagIds"
+                ],
+                "type": "object",
+                "properties": {
+                    "documentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "tagIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CreateDocumentTemplateRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tagIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "mainTagId": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "CreateTagRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "pattern": "^[\\w\\s\\-\\&\\(\\)\\.ÀÁÄÇÈÉËÌÍÏàáäçèéëìíïÑÒÓÖÙÚÜñòóöùúü]{3,50}$",
+                        "type": "string"
+                    },
+                    "description": {
+                        "maxLength": 100,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DocumentApplicationAttributeDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "value": {
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DocumentDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "normalizedTitle": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "extension": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "size": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "legalEntityFullName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lastUpdatedDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "legalEntityId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TagDto"
+                        },
+                        "nullable": true
+                    },
+                    "documentDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "publishDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "mainTagId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "sourceApplication": {
+                        "$ref": "#/components/schemas/SourceApplicationDto"
+                    },
+                    "record": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "observations": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "visibility": {
+                        "$ref": "#/components/schemas/Visibility"
+                    },
+                    "applicationAttributes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DocumentApplicationAttributeDto"
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DocumentShareLinkDto": {
+                "type": "object",
+                "properties": {
+                    "sharerName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "documentName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "documentExtension": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "documentSizeInBytes": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "expirationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DocumentShareLinkResult": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "shareLink": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "password": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "expirationDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "hasPasswordProtection": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "DocumentTemplateDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "normalizedName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/TagDto"
+                        },
+                        "nullable": true
+                    },
+                    "mainTagId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isMasterDocumentTemplate": {
+                        "type": "boolean"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "LegalEntityDto": {
+                "type": "object",
+                "properties": {
+                    "correlationId": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "surName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "formattedName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "fullName": {
+                        "type": "string",
+                        "nullable": true,
+                        "readOnly": true
+                    },
+                    "vatNumber": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyDocumentTemplateRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "tagIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "nullable": true
+                    },
+                    "mainTagId": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyShareLinkRequest": {
+                "required": [
+                    "hasPasswordProtection"
+                ],
+                "type": "object",
+                "properties": {
+                    "hasPasswordProtection": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ModifyTagRequest": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "pattern": "^[\\w\\s\\-\\&\\(\\)\\.ÀÁÄÇÈÉËÌÍÏàáäçèéëìíïÑÒÓÖÙÚÜñòóöùúü]{3,50}$",
+                        "type": "string"
+                    },
+                    "description": {
+                        "maxLength": 100,
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "SourceApplicationDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TagDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "normalizedName": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "isMasterTag": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TagsFromDocumentsRequest": {
+                "required": [
+                    "documentIds"
+                ],
+                "type": "object",
+                "properties": {
+                    "documentIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "additionalProperties": false
+            },
+            "TenantDto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "idCda": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateDocumentAttributesRequest": {
+                "required": [
+                    "documentDate",
+                    "legalEntityId",
+                    "title"
+                ],
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "documentDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "legalEntityId": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UpdateDocumentTagsRequest": {
+                "required": [
+                    "tagIds"
+                ],
+                "type": "object",
+                "properties": {
+                    "tagIds": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "mainTagId": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ValidationProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "errors": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            },
+            "Visibility": {
+                "enum": [
+                    0,
+                    1,
+                    2
+                ],
+                "type": "integer",
+                "format": "int32"
+            }
+        }
+    }
+}
