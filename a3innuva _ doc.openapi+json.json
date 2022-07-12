@@ -195,7 +195,7 @@
             }
           },
           "400": {
-            "description": "Bad Request",
+            "description": "Bad Requesttt",
             "content": {
               "application/json": {
                 "schema": {
