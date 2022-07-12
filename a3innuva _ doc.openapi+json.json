@@ -456,7 +456,7 @@
           }
         }
       }
-    },	
+    },
     "/api/documents/{id}": {
       "get": {
         "tags": [
@@ -3987,6 +3987,22 @@
         ],
         "type": "integer",
         "format": "int32"
+      }
+    },
+    "securitySchemes": {
+      "API Key - 1": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://login.wolterskluwer.eu/auth/core/connect/authorize",
+            "tokenUrl": "https://login.wolterskluwer.eu/auth/core/connect/token",
+            "refreshUrl": "https://login.wolterskluwer.eu/auth/core/connect/token",
+            "scopes": {
+              "scope": "WK.ES.A3EquipoContex"
+            }
+          }
+        },
+        "description": ""
       }
     }
   }
