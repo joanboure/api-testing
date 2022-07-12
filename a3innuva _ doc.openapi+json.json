@@ -234,6 +234,229 @@
         }
       }
     },
+    "/api/documentsa": {
+      "get": {
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Documents_Get",
+        "operationId": "Documents_Get",
+        "parameters": [
+          {
+            "name": "SortField",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SortDesc",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "LegalEntityId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Tags",
+            "in": "query",
+            "schema": {
+              "type": "array"
+            }
+          },
+          {
+            "name": "FromDate",
+            "in": "query",
+            "description": "Format - date-time (as date-time in RFC3339).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ToDate",
+            "in": "query",
+            "description": "Format - date-time (as date-time in RFC3339).",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "description": "Format - int32.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "description": "Format - int32.",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "SearchField",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "SearchValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentDto"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "string",
+                    "title": "string",
+                    "normalizedTitle": "string",
+                    "extension": "string",
+                    "size": 0,
+                    "legalEntityFullName": "string",
+                    "lastUpdatedDate": "string",
+                    "legalEntityId": "string",
+                    "tags": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "normalizedName": "string",
+                        "description": "string",
+                        "isMasterTag": true
+                      }
+                    ],
+                    "documentDate": "string",
+                    "publishDate": "string",
+                    "mainTagId": "string",
+                    "sourceApplication": {
+                      "id": "string",
+                      "name": "string"
+                    },
+                    "record": "string",
+                    "observations": "string",
+                    "visibility": 0,
+                    "applicationAttributes": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "value": {}
+                      }
+                    ]
+                  }
+                ]
+              },
+              "application/problem+json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DocumentDto"
+                  }
+                },
+                "example": [
+                  {
+                    "id": "string",
+                    "title": "string",
+                    "normalizedTitle": "string",
+                    "extension": "string",
+                    "size": 0,
+                    "legalEntityFullName": "string",
+                    "lastUpdatedDate": "string",
+                    "legalEntityId": "string",
+                    "tags": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "normalizedName": "string",
+                        "description": "string",
+                        "isMasterTag": true
+                      }
+                    ],
+                    "documentDate": "string",
+                    "publishDate": "string",
+                    "mainTagId": "string",
+                    "sourceApplication": {
+                      "id": "string",
+                      "name": "string"
+                    },
+                    "record": "string",
+                    "observations": "string",
+                    "visibility": 0,
+                    "applicationAttributes": [
+                      {
+                        "id": "string",
+                        "name": "string",
+                        "value": {}
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Requesttt",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                },
+                "example": {
+                  "type": "string",
+                  "title": "string",
+                  "status": 0,
+                  "detail": "string",
+                  "instance": "string",
+                  "errors": {}
+                }
+              },
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                },
+                "example": {
+                  "type": "string",
+                  "title": "string",
+                  "status": 0,
+                  "detail": "string",
+                  "instance": "string",
+                  "errors": {}
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },	
     "/api/documents/{id}": {
       "get": {
         "tags": [
