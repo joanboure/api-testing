@@ -237,7 +237,7 @@
     "/api/documentsa": {
       "get": {
         "tags": [
-          "Documents"
+          "Documentos"
         ],
         "summary": "Documents_Get",
         "operationId": "Documents_Get",
