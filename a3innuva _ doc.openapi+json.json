@@ -234,7 +234,7 @@
         }
       }
     },
-    "/api/documentsa": {
+    "/api/documentsadddd": {
       "get": {
         "tags": [
           "Documentos"
