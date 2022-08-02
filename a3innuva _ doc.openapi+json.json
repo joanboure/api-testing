@@ -3,9 +3,7 @@
   "info": {
     "title": "a3innuva | doc",
     "version": "1.0",
-    "description": {
-		"$ref": "introduction.md"
-	}
+    "description": "[object Object]"
   },
   "servers": [
     {
@@ -4007,5 +4005,10 @@
         "description": ""
       }
     }
-  }
+  },
+  "security": [
+    {
+      "API Key - 1": []
+    }
+  ]
 }
