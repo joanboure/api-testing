@@ -1,0 +1,24 @@
+{
+  "collapseTableOfContents": false,
+  "items": [
+    {
+      "type": "item",
+      "title": "ejemplo-doc",
+      "uri": "/docs/ejemplo-doc.md"
+    },
+    {
+      "type": "item",
+      "title": "oauth",
+      "uri": "/docs/oauth.md"
+    },
+    {
+      "type": "divider",
+      "title": "APIS"
+    },
+    {
+      "type": "item",
+      "title": "a3innuva | doc",
+      "uri": "/a3innuva _ doc.openapi+json.json"
+    }
+  ]
+}
