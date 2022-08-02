@@ -3,8 +3,9 @@
   "info": {
     "title": "a3innuva | doc",
     "version": "1.0",
-    "description": 
-		$ref: introduction.md
+    "description": {
+		"$ref": "/introduction.md"
+	}
   },
   "servers": [
     {
